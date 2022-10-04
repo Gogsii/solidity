@@ -1,0 +1,2 @@
+# solidity
+Solidity learning projects.
