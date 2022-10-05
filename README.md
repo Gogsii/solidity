@@ -1,2 +1,2 @@
 # solidity
-Solidity learning projects.
+Solidity learning projects. Testing.
