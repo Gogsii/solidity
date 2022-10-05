@@ -8,29 +8,29 @@ pragma solidity ^0.8.17;
 //bytes32 favoritePet = "cat"; //32 is max size byte can be
 
 contract SimpleStorage {
-  uint256 favoriteNumber; // this gets initialized to 0 in solidity
+    uint256 favoriteNumber; // this gets initialized to 0 in solidity
 
-  struct People {
-    uint256 favoriteNumber;
-    string name;
-  }
+    struct People {
+        uint256 favoriteNumber;
+        string name;
+    }
 
-  People[] public people;
+    People[] public people;
 
-  mapping(string => uint256) public nameToFavoriteNumber;
+    mapping(string => uint256) public nameToFavoriteNumber;
 
-  function store(uint256 _favoriteNumber) public virtual {
-    favoriteNumber = _favoriteNumber;
-  }
+    function store(uint256 _favoriteNumber) public virtual {
+        favoriteNumber = _favoriteNumber;
+    }
 
-  //view, pure don't modify the state of a blockchain
-  function retrieve() public view returns (uint256) {
-    return favoriteNumber;
-  }
+    //view, pure don't modify the state of a blockchain
+    function retrieve() public view returns (uint256) {
+        return favoriteNumber;
+    }
 
-  //calldata and memory (temporary), storage (permanent)
-  function addPerson(string memory _name, uint256 _favoriteNumber) public {
-    people.push(People(_favoriteNumber, _name));
-    nameToFavoriteNumber[_name] = _favoriteNumber;
-  }
+    //calldata and memory (temporary), storage (permanent)
+    function addPerson(string memory _name, uint256 _favoriteNumber) public {
+        people.push(People(_favoriteNumber, _name));
+        nameToFavoriteNumber[_name] = _favoriteNumber;
+    }
 }

@@ -3,62 +3,62 @@
 // const fs = require("fs-extra");
 // require("dotenv").config();
 
-import { ethers } from "ethers";
-import * as fs from "fs-extra";
-import "dotenv/config";
+import { ethers } from "ethers"
+import * as fs from "fs-extra"
+import "dotenv/config"
 
 async function main() {
-  //this is the way the script connects to the blockchain
-  const provider = new ethers.providers.JsonRpcProvider(process.env.RPC_URL!);
-  
-  const wallet = new ethers.Wallet(process.env.PRIVATE_KEY!, provider);
+    //this is the way the script connects to the blockchain
+    const provider = new ethers.providers.JsonRpcProvider(process.env.RPC_URL!)
 
-  // const encryptedJson = fs.readFileSync("./encryptedKey.json", "utf-8");
-  // let wallet = new ethers.Wallet.fromEncryptedJsonSync(encryptedJson, process.env.PRIVATE_KEY_PASSWORD);
-  // wallet = await wallet.connect(provider);
+    const wallet = new ethers.Wallet(process.env.PRIVATE_KEY!, provider)
 
-  const abi = fs.readFileSync("./SimpleStorage_sol_SimpleStorage.abi", "utf8");
+    // const encryptedJson = fs.readFileSync("./encryptedKey.json", "utf-8");
+    // let wallet = new ethers.Wallet.fromEncryptedJsonSync(encryptedJson, process.env.PRIVATE_KEY_PASSWORD);
+    // wallet = await wallet.connect(provider);
 
-  const binary = fs.readFileSync(
-    "./SimpleStorage_sol_SimpleStorage.bin",
-    "utf8"
-  );
+    const abi = fs.readFileSync("./SimpleStorage_sol_SimpleStorage.abi", "utf8")
 
-  const contractFactory = new ethers.ContractFactory(abi, binary, wallet);
-  console.log("Deploying please wait . . .");
+    const binary = fs.readFileSync(
+        "./SimpleStorage_sol_SimpleStorage.bin",
+        "utf8"
+    )
 
-  const contract = await contractFactory.deploy();
+    const contractFactory = new ethers.ContractFactory(abi, binary, wallet)
+    console.log("Deploying please wait . . .")
 
-  // const contract = await contractFactory.deploy({
-  //   gasLimit: 15000,
+    const contract = await contractFactory.deploy()
 
-  // });
+    // const contract = await contractFactory.deploy({
+    //   gasLimit: 15000,
 
-  const deploymentReceipt = await contract.deployTransaction.wait(1);
+    // });
 
-  console.log(`Contract deployed to ${contract.address}`);
+    const deploymentReceipt = await contract.deployTransaction.wait(1)
 
-  // Get Number
-  let currentFavoriteNumber = await contract.retrieve();
-  console.log(`Current Favorite Number: ${currentFavoriteNumber.toString()}`);
-  console.log("Updating favorite number...");
+    console.log(`Contract deployed to ${contract.address}`)
 
-  let transactionResponse = await contract.store("7");
-  let transactionReceipt = await transactionResponse.wait();
-  const updatedFavoriteNumber = await contract.retrieve();
-  console.log(`Updated favorite number is: ${updatedFavoriteNumber}`);
+    // Get Number
+    let currentFavoriteNumber = await contract.retrieve()
+    console.log(`Current Favorite Number: ${currentFavoriteNumber.toString()}`)
+    console.log("Updating favorite number...")
 
-  // console.log("Updating favorite number...");
+    let transactionResponse = await contract.store("7")
+    let transactionReceipt = await transactionResponse.wait()
+    const updatedFavoriteNumber = await contract.retrieve()
+    console.log(`Updated favorite number is: ${updatedFavoriteNumber}`)
 
-  // let transactionResponse = await contract.store(7);
-  // let transactionReceipt = await transactionResponse.wait();
-  // currentFavoriteNumber = await contract.retrieve();
-  // console.log(`New Favorite Number: ${currentFavoriteNumber}`);
+    // console.log("Updating favorite number...");
+
+    // let transactionResponse = await contract.store(7);
+    // let transactionReceipt = await transactionResponse.wait();
+    // currentFavoriteNumber = await contract.retrieve();
+    // console.log(`New Favorite Number: ${currentFavoriteNumber}`);
 }
 
 main()
-  .then(() => process.exit(0))
-  .catch((error) => {
-    console.error(error);
-    process.exit(1);
-  });
+    .then(() => process.exit(0))
+    .catch((error) => {
+        console.error(error)
+        process.exit(1)
+    })
