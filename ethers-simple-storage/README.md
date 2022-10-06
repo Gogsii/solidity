@@ -1,30 +1,29 @@
 # Gogsi's Ether Simple Storage
+
 This project highlights how tools like HardHat work under the hood.
 
 # Ethers Simple Storage
 
 This is part of the FreeCodeCamp Solidity & Javascript Blockchain Course.
 
-Video Coming Soon...
-
 # Getting Started
 
 ## Requirements
 
-- [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-  - You'll know you did it right if you can run `git --version` and you see a response like `git version x.x.x`
-- [Nodejs](https://nodejs.org/en/)
-  - You'll know you've installed nodejs right if you can run:
-    - `node --version` and get an ouput like: `vx.x.x`
-- [Yarn](https://classic.yarnpkg.com/lang/en/docs/install/) instead of `npm`
-  - You'll know you've installed yarn right if you can run:
-    - `yarn --version` and get an output like: `x.x.x`
-    - You might need to install it with npm
-- [ganache](https://trufflesuite.com/ganache/)
-  - You'll know you did it right if you can run the application and see:
-    <br>
-    <img src="./img/ganache-picture.png" alt="ganache" width="200"/>
-  - You can alternatively use [ganache-cli](https://www.npmjs.com/package/ganache-cli) or [hardhat](https://hardhat.org/)
+-   [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+    -   You'll know you did it right if you can run `git --version` and you see a response like `git version x.x.x`
+-   [Nodejs](https://nodejs.org/en/)
+    -   You'll know you've installed nodejs right if you can run:
+        -   `node --version` and get an ouput like: `vx.x.x`
+-   [Yarn](https://classic.yarnpkg.com/lang/en/docs/install/) instead of `npm`
+    -   You'll know you've installed yarn right if you can run:
+        -   `yarn --version` and get an output like: `x.x.x`
+        -   You might need to install it with npm
+-   [ganache](https://trufflesuite.com/ganache/)
+    -   You'll know you did it right if you can run the application and see:
+        <br>
+        <img src="./img/ganache-picture.png" alt="ganache" width="200"/>
+    -   You can alternatively use [ganache-cli](https://www.npmjs.com/package/ganache-cli) or [hardhat](https://hardhat.org/)
 
 ### Optional Gitpod
 
@@ -37,7 +36,7 @@ If you can't or don't want to run and install locally, you can work with this re
 Clone this repo
 
 ```
-git clone https://github.com/PatrickAlphaC/ethers-simple-storage
+git clone https://github.com/Gogsii/solidity.git
 cd ethers-simple-storage
 ```
 

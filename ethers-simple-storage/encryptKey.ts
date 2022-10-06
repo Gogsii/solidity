@@ -14,7 +14,7 @@ async function main() {
     )
 
     console.log(encryptedJsonKey)
-    fs.writeFileSync("./.encryptedKey.json", encryptedJsonKey)
+    fs.writeFileSync("./.encryptedKey.json", encryptedJsonKey) //saving the encrypted key to a new file
 }
 
 main()
